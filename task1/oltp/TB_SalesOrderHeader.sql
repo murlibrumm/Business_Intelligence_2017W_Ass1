@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS TB_SalesOrderHeader (
 	DueDate DATE NOT NULL,
 	ShipDate DATE,
 	Status INTEGER NOT NULL,
-	SalesOrderNumber INTEGER NOT NULL,
+	SalesOrderNumber VARCHAR(40) NOT NULL,
 	CustomerID INTEGER NOT NULL,
 	ShipToAddressID INTEGER NOT NULL,
 	BillToAddressID INTEGER NOT NULL,
