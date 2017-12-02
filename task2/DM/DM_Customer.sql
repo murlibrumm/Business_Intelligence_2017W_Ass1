@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS DM_Customer (
+    CustomerID INTEGER NOT NULL,
+    `Name` VARCHAR(150) NOT NULL,
+    BirthDate DATE NOT NULL,
+    Age INTEGER NOT NULL,
+    Gender VARCHAR(10) NOT NULL,
+    Email VARCHAR(150) NOT NULL,
+    Phone VARCHAR(40) NOT NULL,
+    CONSTRAINT PK_Customer PRIMARY KEY (CustomerID)
+);

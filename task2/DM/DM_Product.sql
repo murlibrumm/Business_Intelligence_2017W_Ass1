@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS DM_Product (
+    ProductID INTEGER NOT NULL,
+    ProductNumber VARCHAR(100) NOT NULL,
+    `Name` VARCHAR(150) NOT NULL,
+    ModelName VARCHAR(150) NOT NULL,
+    StandardCost NUMERIC(10, 4) NOT NULL,
+    ListPrice NUMERIC(10, 4) NOT NULL,
+    ProductSubCategory VARCHAR(150) NOT NULL,
+    ProductTopCategory VARCHAR(150) NOT NULL,
+    SellStartDate DATE NOT NULL,
+    SellEndDate DATE NOT NULL,
+    DiscontinuedDate DATE NOT NULL,
+    Size VARCHAR(40),
+    `Weight` NUMERIC(10, 4),
+    IsBulkyItem INTEGER NOT NULL,
+    CONSTRAINT PK_Product PRIMARY KEY (ProductID),
+    CONSTRAINT FK_SellStartDate FOREIGN KEY (SellStartDate) REFERENCES DM_Time (`Date`),
+    CONSTRAINT FK_SellEndDate FOREIGN KEY (SellEndDate) REFERENCES DM_Time (`Date`),
+    CONSTRAINT FK_DiscontinuedDate FOREIGN KEY (DiscontinuedDate) REFERENCES DM_Time (`Date`)
+)
