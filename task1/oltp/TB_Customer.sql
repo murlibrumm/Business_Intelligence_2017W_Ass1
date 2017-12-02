@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS TB_Customer (
 	Title VARCHAR(40),
 	FirstName VARCHAR(40) NOT NULL,
 	MiddleName VARCHAR(40),
-	Lastname VARCHAR(40) NOT NULL,
+	LastName VARCHAR(40) NOT NULL,
 	Suffix VARCHAR(40),
 	EmailAddress VARCHAR(40),
 	Phone VARCHAR(40),
