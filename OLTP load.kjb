@@ -1,14 +1,14 @@
 <job>
-  <name>OLTP create</name>
+  <name>OLTP load</name>
   <description />
   <extended_description />
   <job_version />
   <job_status>0</job_status>
   <directory>/</directory>
   <created_user>-</created_user>
-  <created_date>2017/12/02 19:24:24.445</created_date>
+  <created_date>2017/12/02 19:48:48.314</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017/12/02 21:13:46.032</modified_date>
+  <modified_date>2017/12/02 21:16:07.421</modified_date>
   <parameters>
     </parameters>
   <connection>
@@ -342,20 +342,204 @@
   <shared_objects_file />
   <entries>
     <entry>
-      <name>Customer</name>
+      <name>Load Customers</name>
       <description />
-      <type>SQL</type>
-      <sql />
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>${BI_Ass1_Dir}/task1/oltp/TB_Customer.sql</sqlfilename>
-      <sendOneStatement>F</sendOneStatement>
+      <type>MYSQL_BULK_LOAD</type>
+      <schemaname />
+      <tablename>TB_Customer</tablename>
+      <filename>${BI_Ass1_Dir}/OLTP data/Customer.csv</filename>
+      <separator>	</separator>
+      <enclosed />
+      <escaped />
+      <linestarted />
+      <lineterminated />
+      <replacedata>Y</replacedata>
+      <ignorelines>0</ignorelines>
+      <listattribut />
+      <localinfile>Y</localinfile>
+      <prorityvalue>0</prorityvalue>
+      <addfiletoresult>N</addfiletoresult>
       <connection>BI_OLTP_53</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>208</xloc>
-      <yloc>192</yloc>
+      <xloc>320</xloc>
+      <yloc>256</yloc>
+    </entry>
+    <entry>
+      <name>Load Addresses</name>
+      <description />
+      <type>MYSQL_BULK_LOAD</type>
+      <schemaname />
+      <tablename>TB_Address</tablename>
+      <filename>${BI_Ass1_Dir}/OLTP data/Address.csv</filename>
+      <separator>	</separator>
+      <enclosed />
+      <escaped />
+      <linestarted />
+      <lineterminated />
+      <replacedata>Y</replacedata>
+      <ignorelines>0</ignorelines>
+      <listattribut />
+      <localinfile>Y</localinfile>
+      <prorityvalue>0</prorityvalue>
+      <addfiletoresult>N</addfiletoresult>
+      <connection>BI_OLTP_53</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>496</xloc>
+      <yloc>176</yloc>
+    </entry>
+    <entry>
+      <name>Load ShipMethods</name>
+      <description />
+      <type>MYSQL_BULK_LOAD</type>
+      <schemaname />
+      <tablename>TB_ShipMethod</tablename>
+      <filename>${BI_Ass1_Dir}/OLTP data/ShipMethod.csv</filename>
+      <separator>	</separator>
+      <enclosed />
+      <escaped />
+      <linestarted />
+      <lineterminated />
+      <replacedata>Y</replacedata>
+      <ignorelines>0</ignorelines>
+      <listattribut />
+      <localinfile>Y</localinfile>
+      <prorityvalue>0</prorityvalue>
+      <addfiletoresult>N</addfiletoresult>
+      <connection>BI_OLTP_53</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>784</xloc>
+      <yloc>96</yloc>
+    </entry>
+    <entry>
+      <name>Load CustomerAddresses</name>
+      <description />
+      <type>MYSQL_BULK_LOAD</type>
+      <schemaname />
+      <tablename>TB_CustomerAddress</tablename>
+      <filename>${BI_Ass1_Dir}/OLTP data/CustomerAddress.csv</filename>
+      <separator>	</separator>
+      <enclosed />
+      <escaped />
+      <linestarted />
+      <lineterminated />
+      <replacedata>Y</replacedata>
+      <ignorelines>0</ignorelines>
+      <listattribut />
+      <localinfile>Y</localinfile>
+      <prorityvalue>0</prorityvalue>
+      <addfiletoresult>N</addfiletoresult>
+      <connection>BI_OLTP_53</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>896</xloc>
+      <yloc>224</yloc>
+    </entry>
+    <entry>
+      <name>Load ProductCategories</name>
+      <description />
+      <type>MYSQL_BULK_LOAD</type>
+      <schemaname />
+      <tablename>TB_ProductCategory</tablename>
+      <filename>${BI_Ass1_Dir}/OLTP data/ProductCategory.csv</filename>
+      <separator>	</separator>
+      <enclosed />
+      <escaped />
+      <linestarted />
+      <lineterminated />
+      <replacedata>Y</replacedata>
+      <ignorelines>0</ignorelines>
+      <listattribut />
+      <localinfile>Y</localinfile>
+      <prorityvalue>0</prorityvalue>
+      <addfiletoresult>N</addfiletoresult>
+      <connection>BI_OLTP_53</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>640</xloc>
+      <yloc>384</yloc>
+    </entry>
+    <entry>
+      <name>Load Products</name>
+      <description />
+      <type>MYSQL_BULK_LOAD</type>
+      <schemaname />
+      <tablename>TB_Product</tablename>
+      <filename>${BI_Ass1_Dir}/OLTP data/Product.csv</filename>
+      <separator>	</separator>
+      <enclosed />
+      <escaped />
+      <linestarted />
+      <lineterminated />
+      <replacedata>Y</replacedata>
+      <ignorelines>0</ignorelines>
+      <listattribut />
+      <localinfile>Y</localinfile>
+      <prorityvalue>0</prorityvalue>
+      <addfiletoresult>N</addfiletoresult>
+      <connection>BI_OLTP_53</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>544</xloc>
+      <yloc>576</yloc>
+    </entry>
+    <entry>
+      <name>Load SalesOrderHeaders</name>
+      <description />
+      <type>MYSQL_BULK_LOAD</type>
+      <schemaname />
+      <tablename>TB_SalesOrderHeader</tablename>
+      <filename>${BI_Ass1_Dir}/OLTP data/SalesOrderHeader.csv</filename>
+      <separator>	</separator>
+      <enclosed />
+      <escaped />
+      <linestarted />
+      <lineterminated />
+      <replacedata>Y</replacedata>
+      <ignorelines>0</ignorelines>
+      <listattribut />
+      <localinfile>Y</localinfile>
+      <prorityvalue>0</prorityvalue>
+      <addfiletoresult>N</addfiletoresult>
+      <connection>BI_OLTP_53</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>848</xloc>
+      <yloc>592</yloc>
+    </entry>
+    <entry>
+      <name>Load SalesOrderDetail</name>
+      <description />
+      <type>MYSQL_BULK_LOAD</type>
+      <schemaname />
+      <tablename>TB_SalesOrderDetail</tablename>
+      <filename>${BI_Ass1_Dir}/OLTP data/SalesOrderDetail.csv</filename>
+      <separator>	</separator>
+      <enclosed />
+      <escaped />
+      <linestarted />
+      <lineterminated />
+      <replacedata>Y</replacedata>
+      <ignorelines>0</ignorelines>
+      <listattribut />
+      <localinfile>Y</localinfile>
+      <prorityvalue>0</prorityvalue>
+      <addfiletoresult>N</addfiletoresult>
+      <connection>BI_OLTP_53</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1056</xloc>
+      <yloc>432</yloc>
     </entry>
     <entry>
       <name>START</name>
@@ -374,120 +558,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>80</xloc>
-      <yloc>80</yloc>
-    </entry>
-    <entry>
-      <name>Address</name>
-      <description />
-      <type>SQL</type>
-      <sql />
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>${BI_Ass1_Dir}/task1/oltp/TB_Address.sql</sqlfilename>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>BI_OLTP_53</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>224</yloc>
-    </entry>
-    <entry>
-      <name>CustomerAddress</name>
-      <description />
-      <type>SQL</type>
-      <sql />
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>${BI_Ass1_Dir}/task1/oltp/TB_CustomerAddress.sql</sqlfilename>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>BI_OLTP_53</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>576</xloc>
-      <yloc>256</yloc>
-    </entry>
-    <entry>
-      <name>ShipMethod</name>
-      <description />
-      <type>SQL</type>
-      <sql />
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>${BI_Ass1_Dir}/task1/oltp/TB_ShipMethod.sql</sqlfilename>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>BI_OLTP_53</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>768</xloc>
-      <yloc>240</yloc>
-    </entry>
-    <entry>
-      <name>ProductCategory</name>
-      <description />
-      <type>SQL</type>
-      <sql />
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>${BI_Ass1_Dir}/task1/oltp/TB_ProductCategory.sql</sqlfilename>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>BI_OLTP_53</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>880</xloc>
-      <yloc>208</yloc>
-    </entry>
-    <entry>
-      <name>Product</name>
-      <description />
-      <type>SQL</type>
-      <sql />
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>${BI_Ass1_Dir}/task1/oltp/TB_Product.sql</sqlfilename>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>BI_OLTP_53</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>928</xloc>
-      <yloc>80</yloc>
-    </entry>
-    <entry>
-      <name>SalesOrderHeader</name>
-      <description />
-      <type>SQL</type>
-      <sql />
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>${BI_Ass1_Dir}/task1/oltp/TB_SalesOrderHeader.sql</sqlfilename>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>BI_OLTP_53</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1152</xloc>
-      <yloc>144</yloc>
-    </entry>
-    <entry>
-      <name>SalesOrderDetail</name>
-      <description />
-      <type>SQL</type>
-      <sql />
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>${BI_Ass1_Dir}/task1/oltp/TB_SalesOrderDetail.sql</sqlfilename>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>BI_OLTP_53</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1104</xloc>
-      <yloc>384</yloc>
+      <xloc>320</xloc>
+      <yloc>576</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -496,14 +568,14 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1024</xloc>
-      <yloc>480</yloc>
+      <xloc>1056</xloc>
+      <yloc>192</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>Customer</to>
+      <to>Load Customers</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -511,8 +583,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Customer</from>
-      <to>Address</to>
+      <from>Load Customers</from>
+      <to>Load Addresses</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -520,8 +592,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Address</from>
-      <to>CustomerAddress</to>
+      <from>Load Addresses</from>
+      <to>Load ShipMethods</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -529,8 +601,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>CustomerAddress</from>
-      <to>ShipMethod</to>
+      <from>Load ShipMethods</from>
+      <to>Load CustomerAddresses</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -538,8 +610,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>ShipMethod</from>
-      <to>ProductCategory</to>
+      <from>Load CustomerAddresses</from>
+      <to>Load ProductCategories</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -547,8 +619,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>ProductCategory</from>
-      <to>Product</to>
+      <from>Load ProductCategories</from>
+      <to>Load Products</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -556,8 +628,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Product</from>
-      <to>SalesOrderHeader</to>
+      <from>Load Products</from>
+      <to>Load SalesOrderHeaders</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -565,8 +637,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>SalesOrderHeader</from>
-      <to>SalesOrderDetail</to>
+      <from>Load SalesOrderHeaders</from>
+      <to>Load SalesOrderDetail</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -574,7 +646,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>SalesOrderDetail</from>
+      <from>Load SalesOrderDetail</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
