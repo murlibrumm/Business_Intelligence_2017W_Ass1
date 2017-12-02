@@ -6,8 +6,8 @@
 3. Multidimensional Queries on the OLAP cube.
 
 ## Team Members:
-Maximilian Moser (01326252)
-Roman Tonigold (########)
+Maximilian Moser (01326252)  
+Roman Tonigold (########)  
 Wolfgang Weintritt (01327191)
 
 ## Required Software:
@@ -15,4 +15,4 @@ Wolfgang Weintritt (01327191)
 * Pentaho Schema Workbench
 
 ## Setup:
-In the kettle config file (location: `~/.kettle/kettle.properties`): Set the variable `BI_Ass1_Dir` to the directory of this project: 
+In the kettle config file (location: `~/.kettle/kettle.properties`): Set the variable `BI_Ass1_Dir` to the directory of this project.
