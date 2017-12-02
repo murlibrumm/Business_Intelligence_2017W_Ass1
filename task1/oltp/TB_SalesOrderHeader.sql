@@ -1,4 +1,4 @@
-CREATE TABLE SalesOrderHeader (
+CREATE TABLE IF NOT EXISTS TB_SalesOrderHeader (
 	SalesOrderID INTEGER NOT NULL,
 	RevisionNumber INTEGER NOT NULL,
 	OrderDate DATE NOT NULL,

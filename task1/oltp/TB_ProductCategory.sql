@@ -1,4 +1,4 @@
-CREATE TABLE TB_ProductCategory (
+CREATE TABLE IF NOT EXISTS TB_ProductCategory (
 	ProductCategoryID INTEGER NOT NULL,
 	ParentProductCategoryID INTEGER,
 	Name VARCHAR(40) NOT NULL,

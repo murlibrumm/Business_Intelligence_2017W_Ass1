@@ -1,4 +1,4 @@
-CREATE TABLE TB_SalesOrderDetail (
+CREATE TABLE IF NOT EXISTS TB_SalesOrderDetail (
 	SalesOrderID INTEGER NOT NULL,
 	SalesOrderDetailID INTEGER NOT NULL,
 	OrderQty INTEGER NOT NULL,
