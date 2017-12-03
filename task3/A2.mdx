@@ -1,0 +1,4 @@
+SELECT {[Revenue]} ON 0,
+ORDER({[Product].[TopCategory].Members}, [Revenue]) ON 1
+FROM [bike_sales]
+WHERE {[OrderDate].[Year].[2014]}
