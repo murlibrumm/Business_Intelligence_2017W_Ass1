@@ -7,7 +7,7 @@
       </Level>
       <Level name="Month" visible="true" column="MonthNumberofYear" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
       </Level>
-      <Level name="Day" visible="true" column="DayNumberofMonth" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+      <Level name="Days" visible="true" column="DayNumberofMonth" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
       </Level>
     </Hierarchy>
   </Dimension>
@@ -32,7 +32,7 @@
       <Level name="SubCategory" visible="true" column="ProductSubCategory" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
       </Level>
     </Hierarchy>
-    <Hierarchy name="Name" visible="true" hasAll="true">
+    <Hierarchy name="Name" visible="true" hasAll="true" primaryKey="ProductID">
       <Table name="DM_Product">
       </Table>
       <Level name="Name" visible="true" column="Name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
@@ -40,22 +40,22 @@
     </Hierarchy>
   </Dimension>
   <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Customer">
-    <Hierarchy name="Age" visible="true" hasAll="true" primaryKey="CustomerID">
+    <Hierarchy name="Name" visible="true" hasAll="true" primaryKey="CustomerID">
       <Table name="DM_Customer">
       </Table>
-      <Level name="Age" visible="true" column="Age" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      <Level name="Name" visible="true" column="Name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
       </Level>
     </Hierarchy>
-    <Hierarchy name="Gender" visible="true" hasAll="true">
+    <Hierarchy name="Gender" visible="true" hasAll="true" primaryKey="CustomerID">
       <Table name="DM_Customer">
       </Table>
       <Level name="Gender" visible="true" column="Gender" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
       </Level>
     </Hierarchy>
-    <Hierarchy name="Name" visible="true" hasAll="true">
+    <Hierarchy name="Age" visible="true" hasAll="true" primaryKey="CustomerID">
       <Table name="DM_Customer">
       </Table>
-      <Level name="Name" visible="true" column="Name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      <Level name="Age" visible="true" column="Age" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
       </Level>
     </Hierarchy>
   </Dimension>
@@ -86,7 +86,7 @@
     </Measure>
     <Measure name="TaxAmount" column="TaxAmount" formatString="#,###.00" aggregator="sum" visible="true">
     </Measure>
-    <Measure name="IsLateShipment" column="IsLateShipment" aggregator="sum" visible="true">
+    <Measure name="IsLateShipment" column="IsLateShipment" aggregator="distinct count" visible="true">
     </Measure>
   </Cube>
 </Schema>
