@@ -6,3 +6,10 @@ B1:
         this is done via variables, because mysql has no easier ROW_NUMBER() function
     - then, only those Products are considered whose ranking is <= 3
         (top 3 sold per TopCategory)
+
+D1:
+    - [OrderDate].[2014].[1]:[OrderDate].[2014].[7] takes a sequence from the year 2014 over months 1 - 7
+        (January 2014 through July 2014)
+        -> [OrderDate].[2014].[1]:[7] did not work
+        -> apparently the Month can be accessed directly after accessing the Year (since they're defined
+            directly after each other in the hierarchy?)
