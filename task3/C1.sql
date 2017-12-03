@@ -13,4 +13,4 @@ FROM
 		ON f.ShipToAddressID = l.AddressID 
 ) AS info
 GROUP BY CountryRegion, ShipmentMethod
-ORDER BY CountryRegion, ShipmentMethod
+ORDER BY CountryRegion, ShipmentMethod;

@@ -27,4 +27,4 @@ FROM
 		) AS sales
 ) AS ranked
 WHERE rank <= 3
-ORDER BY TopProductCategory ASC, rank ASC
+ORDER BY TopProductCategory ASC, rank ASC;

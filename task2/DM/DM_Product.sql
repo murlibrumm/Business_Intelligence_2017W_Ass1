@@ -17,4 +17,4 @@ CREATE TABLE IF NOT EXISTS DM_Product (
     CONSTRAINT FK_SellStartDate FOREIGN KEY (SellStartDate) REFERENCES DM_Time (`Date`),
     CONSTRAINT FK_SellEndDate FOREIGN KEY (SellEndDate) REFERENCES DM_Time (`Date`),
     CONSTRAINT FK_DiscontinuedDate FOREIGN KEY (DiscontinuedDate) REFERENCES DM_Time (`Date`)
-)
+);

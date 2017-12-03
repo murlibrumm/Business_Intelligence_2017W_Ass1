@@ -5,4 +5,4 @@ CREATE TABLE IF NOT EXISTS DM_Location (
     StateProvince VARCHAR(150) NOT NULL,
     CountryRegion VARCHAR(150) NOT NULL,
     CONSTRAINT PK_Location PRIMARY KEY (AddressID)
-)
+);
