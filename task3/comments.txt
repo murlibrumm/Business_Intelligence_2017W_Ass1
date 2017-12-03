@@ -7,9 +7,14 @@ B1:
     - then, only those Products are considered whose ranking is <= 3
         (top 3 sold per TopCategory)
 
+C1:
+    - the Query was written in SQL since the required ShipmentMethod information does not appear in
+        the OLAP cube as defined in the assignment PDF
+
 D1:
     - [OrderDate].[2014].[1]:[OrderDate].[2014].[7] takes a sequence from the year 2014 over months 1 - 7
         (January 2014 through July 2014)
         -> [OrderDate].[2014].[1]:[7] did not work
         -> apparently the Month can be accessed directly after accessing the Year (since they're defined
             directly after each other in the hierarchy?)
+    - OrderDate was assumed to be the point of time relevant for the calculation of TaxAmount
