@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2017/12/02 23:48:31.845</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2017/12/03 09:58:24.229</modified_date>
+    <modified_date>2017/12/03 15:28:54.419</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -443,7 +443,7 @@
     <database>BI_OLAP_53</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f285ad1fab7eca93a1c0</password>
+    <password>Encrypted 2bec8c0bb1ef59c808710a575cddcfe8c</password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -498,7 +498,7 @@
     <database>BI_OLTP_53</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f285ad1fab7eca93a1c0</password>
+    <password>Encrypted 2bec8c0bb1ef59c808710a575cddcfe8c</password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -714,6 +714,9 @@ var dueDate = DueDate
 var shipDate = ShipDate
 var country = Country
 var standardCost = StandardCost
+var perShipmentCost = CostPerShipMent
+var perItemCost = CostPerUnit
+var bulkyItemSurcharge = BulkyItemSurcharge
 
 // vars to calculate
 var late = 0
@@ -724,9 +727,6 @@ var orderLineTotal = 0
 var orderLineProfit = 0
 var taxAmount = 0
 var orderLineFreightCost = 0
-var perShipmentCost = 0
-var perItemCost = 0
-var bulkyItemSurcharge = 0
 var salesOrderLineNumber = 0
 
 // calculate if shipment is late
@@ -769,23 +769,6 @@ else if (country == "United Kingdom") {
 }
 else if (country == "Australia") {
 	vat = 0.1
-}
-
-// calculate perItemCost, perShipmentCost, bulkyItemSurcharge
-if (shipMethod == "Standard") {
-	perShipmentCost = 5
-	perItemCost = 2
-	bulkyItemSurcharge = 8
-}
-else if (shipMethod == "Cargo (International)") {
-	perShipmentCost = 8
-	perItemCost = 5
-	bulkyItemSurcharge = 10
-}
-else if (shipMethod == "Overseas Deluxe") {
-	perShipmentCost = 32
-	perItemCost = 7
-	bulkyItemSurcharge = 12
 }
 
 // formulas
