@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS DM_FactSales(
-    SalesOrderNumber INTEGER NOT NULL,
-    SalesOrderLineNumber INTEGER NOT NULL,
+    SalesOrderNumber VARCHAR(150) NOT NULL,
+    SalesOrderLineNumber VARCHAR(150) NOT NULL,
     CustomerID INTEGER NOT NULL,
     ProductID INTEGER NOT NULL,
     ShipToAddressID INTEGER NOT NULL,
