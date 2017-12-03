@@ -1,0 +1,8 @@
+B1:
+    - the innermost subselect (sales) calculates the amount of sold units per Product ID
+        and sorts the results per TopCategory and Sales
+    - the first subselect (ranked) calculates the ranking of sold units per Product ID
+        (most sold Product has rank 1, etc.)
+        this is done via variables, because mysql has no easier ROW_NUMBER() function
+    - then, only those Products are considered whose ranking is <= 3
+        (top 3 sold per TopCategory)
