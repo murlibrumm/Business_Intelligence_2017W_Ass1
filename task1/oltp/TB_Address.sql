@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS TB_Address (
 	AddressLine VARCHAR(40) NOT NULL,
 	City VARCHAR(40) NOT NULL,
 	StateProvince VARCHAR(40),
-	PostalCode VARCHAR(40) NOT NULL,
 	CountryRegion VARCHAR(40) NOT NULL,
+	PostalCode VARCHAR(40) NOT NULL,
 	CONSTRAINT PK_Address PRIMARY KEY (AddressID)
 );
