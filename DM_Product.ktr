@@ -429,8 +429,8 @@
     <created_user>-</created_user>
     <created_date>2017/12/02 22:10:11.236</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2017/12/02 23:48:22.645</modified_date>
-    <key_for_session_key />
+    <modified_date>2017/12/03 09:58:02.999</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -443,7 +443,7 @@
     <database>BI_OLAP_53</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2bec8c0bb1ef59c808710a575cddcfe8c</password>
+    <password>Encrypted 2be98afc86aa7f285ad1fab7eca93a1c0</password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -498,7 +498,7 @@
     <database>BI_OLTP_53</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2bec8c0bb1ef59c808710a575cddcfe8c</password>
+    <password>Encrypted 2be98afc86aa7f285ad1fab7eca93a1c0</password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -558,115 +558,6 @@
     </hop>
   </order>
   <step>
-    <name>Table input</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>BI_OLTP_53</connection>
-    <sql>SELECT 
-  ProductID
-, ProductNumber
-, p.Name
-, ProductModelName as ModelName
-, StandardCost
-, ListPrice
-, pc.Name as ProductSubCategory
-, pc.ProductCategoryID as ProductSubCategoryID
-, ppc.Name as ProductTopCategory
-, SellStartDate
-, SellEndDate
-, DiscontinuedDate
-, Size
-, Weight
-FROM TB_Product p 
-JOIN TB_ProductCategory pc 
-	ON p.ProductCategoryID = pc.ProductCategoryID
-JOIN TB_ProductCategory ppc
-	ON pc.ParentProductCategoryID = ppc.ProductCategoryID</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>384</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Modified Java Script Value</name>
-    <type>ScriptValueMod</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var isBulky = 0;
-var topCategory = ProductTopCategory;
-var subCategory = ProductSubCategoryID;
-
-if(topCategory == "Bikes"){
-	isBulky = 1;
-}
-else if(subCategory == 16){
-	isBulky = 1;
-}
-else if(subCategory == 18){
-	isBulky = 1;
-}
-else if(subCategory == 20){
-	isBulky = 1;
-}
-</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>isBulky</name>
-        <rename>IsBulkyItem</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>544</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Insert / Update</name>
     <type>InsertUpdate</type>
     <description />
@@ -682,7 +573,7 @@ else if(subCategory == 20){
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema />
-      <table>dm_product</table>
+      <table>DM_Product</table>
       <key>
         <name>ProductID</name>
         <field>ProductID</field>
@@ -847,6 +738,115 @@ else if(subCategory == 20){
     </remotesteps>
     <GUI>
       <xloc>720</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Modified Java Script Value</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>var isBulky = 0;
+var topCategory = ProductTopCategory;
+var subCategory = ProductSubCategoryID;
+
+if(topCategory == "Bikes"){
+	isBulky = 1;
+}
+else if(subCategory == 16){
+	isBulky = 1;
+}
+else if(subCategory == 18){
+	isBulky = 1;
+}
+else if(subCategory == 20){
+	isBulky = 1;
+}
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>isBulky</name>
+        <rename>IsBulkyItem</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>BI_OLTP_53</connection>
+    <sql>SELECT 
+  ProductID
+, ProductNumber
+, p.Name
+, ProductModelName as ModelName
+, StandardCost
+, ListPrice
+, pc.Name as ProductSubCategory
+, pc.ProductCategoryID as ProductSubCategoryID
+, ppc.Name as ProductTopCategory
+, SellStartDate
+, SellEndDate
+, DiscontinuedDate
+, Size
+, Weight
+FROM TB_Product p 
+JOIN TB_ProductCategory pc 
+	ON p.ProductCategoryID = pc.ProductCategoryID
+JOIN TB_ProductCategory ppc
+	ON pc.ParentProductCategoryID = ppc.ProductCategoryID</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
       <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>

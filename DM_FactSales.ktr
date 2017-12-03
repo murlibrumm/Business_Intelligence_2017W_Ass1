@@ -429,8 +429,8 @@
     <created_user>-</created_user>
     <created_date>2017/12/02 23:48:31.845</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2017/12/03 01:06:41.595</modified_date>
-    <key_for_session_key />
+    <modified_date>2017/12/03 09:58:24.229</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -443,7 +443,7 @@
     <database>BI_OLAP_53</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2bec8c0bb1ef59c808710a575cddcfe8c</password>
+    <password>Encrypted 2be98afc86aa7f285ad1fab7eca93a1c0</password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -498,7 +498,7 @@
     <database>BI_OLTP_53</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2bec8c0bb1ef59c808710a575cddcfe8c</password>
+    <password>Encrypted 2be98afc86aa7f285ad1fab7eca93a1c0</password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -558,75 +558,6 @@
     </hop>
   </order>
   <step>
-    <name>Table input</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>BI_OLTP_53</connection>
-    <sql>SELECT
-  h.SalesOrderNumber
-, h.CustomerID
-, d.ProductID
-, h.ShipToAddressID
-, h.BillToAddressID
-, s.Name as ShipmentMethod
-, d.UnitPrice
-, d.OrderQty as OrderQuantity
-, h.Status as OrderStatus
-, h.OrderDate
-, h.DueDate
-, h.ShipDate
-
-, pc.Name as TopProductCategory
-, p.StandardCost
-, h.RevisionNumber
-, s.CostPerShipMent
-, s.CostPerUnit
-, s.BulkyItemSurcharge
-, a.CountryRegion as Country
-, d.SalesOrderID
-, d.SalesOrderDetailID
-
-FROM tb_salesorderdetail d
-JOIN tb_salesorderheader h
-	ON d.SalesOrderID = h.SalesOrderID
-JOIN tb_shipmethod s
-	ON h.ShipMethodID = s.ShipMethodID
-JOIN tb_product p
-	ON p.ProductID = d.ProductID
-JOIN tb_productcategory c
-	ON c.ProductCategoryID = p.ProductCategoryID
-JOIN tb_productcategory pc
-	ON pc.ProductCategoryID = c.ParentProductCategoryID
-JOIN tb_address a
-	ON a.AddressID = h.ShipToAddressID
-
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>416</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Insert / Update</name>
     <type>InsertUpdate</type>
     <description />
@@ -642,7 +573,7 @@ JOIN tb_address a
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema />
-      <table>dm_factsales</table>
+      <table>DM_FactSales</table>
       <key>
         <name>SalesOrderNumber</name>
         <field>SalesOrderNumber</field>
@@ -934,6 +865,75 @@ salesOrderLineNumber = "SOL" + SalesOrderID + "-" + SalesOrderDetailID
     </remotesteps>
     <GUI>
       <xloc>656</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>BI_OLTP_53</connection>
+    <sql>SELECT
+  h.SalesOrderNumber
+, h.CustomerID
+, d.ProductID
+, h.ShipToAddressID
+, h.BillToAddressID
+, s.Name as ShipmentMethod
+, d.UnitPrice
+, d.OrderQty as OrderQuantity
+, h.Status as OrderStatus
+, h.OrderDate
+, h.DueDate
+, h.ShipDate
+
+, pc.Name as TopProductCategory
+, p.StandardCost
+, h.RevisionNumber
+, s.CostPerShipMent
+, s.CostPerUnit
+, s.BulkyItemSurcharge
+, a.CountryRegion as Country
+, d.SalesOrderID
+, d.SalesOrderDetailID
+
+FROM TB_SalesOrderDetail d
+JOIN TB_SalesOrderHeader h
+	ON d.SalesOrderID = h.SalesOrderID
+JOIN TB_ShipMethod s
+	ON h.ShipMethodID = s.ShipMethodID
+JOIN TB_Product p
+	ON p.ProductID = d.ProductID
+JOIN TB_ProductCategory c
+	ON c.ProductCategoryID = p.ProductCategoryID
+JOIN TB_ProductCategory pc
+	ON pc.ProductCategoryID = c.ParentProductCategoryID
+JOIN TB_Address a
+	ON a.AddressID = h.ShipToAddressID;
+
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
       <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>

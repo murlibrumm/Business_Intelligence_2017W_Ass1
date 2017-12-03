@@ -429,8 +429,8 @@
     <created_user>-</created_user>
     <created_date>2017/12/02 23:28:52.227</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2017/12/02 23:45:10.847</modified_date>
-    <key_for_session_key />
+    <modified_date>2017/12/03 09:57:54.741</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -443,7 +443,7 @@
     <database>BI_OLAP_53</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2bec8c0bb1ef59c808710a575cddcfe8c</password>
+    <password>Encrypted 2be98afc86aa7f285ad1fab7eca93a1c0</password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -498,7 +498,7 @@
     <database>BI_OLTP_53</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2bec8c0bb1ef59c808710a575cddcfe8c</password>
+    <password>Encrypted 2be98afc86aa7f285ad1fab7eca93a1c0</password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -553,57 +553,6 @@
     </hop>
   </order>
   <step>
-    <name>Table input</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>BI_OLTP_53</connection>
-    <sql>SELECT d as `Date`,
-	DAYOFMONTH(d) as DayNumberofMonth,
-	MONTH(d) as MonthNumberofYear,
-	YEAR(d) as CalendarYear
-FROM
-(
-	SELECT OrderDate as d FROM tb_salesorderheader
-	UNION ALL
-		SELECT DueDate FROM tb_salesorderheader
-	UNION ALL
-		SELECT ShipDate FROM tb_salesorderheader
-	UNION ALL
-		SELECT DueDate FROM tb_salesorderheader
-	UNION ALL 
-		SELECT SellStartDate FROM tb_product
-	UNION ALL
-		SELECT SellEndDate FROM tb_product
-	UNION ALL
-		SELECT DiscontinuedDate FROM tb_product
-) as dates
-WHERE d IS NOT NULL</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Insert / Update</name>
     <type>InsertUpdate</type>
     <description />
@@ -619,7 +568,7 @@ WHERE d IS NOT NULL</sql>
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema />
-      <table>dm_time</table>
+      <table>DM_Time</table>
       <key>
         <name>Date</name>
         <field>Date</field>
@@ -674,6 +623,57 @@ WHERE d IS NOT NULL</sql>
     </remotesteps>
     <GUI>
       <xloc>576</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>BI_OLTP_53</connection>
+    <sql>SELECT d as `Date`,
+	DAYOFMONTH(d) as DayNumberofMonth,
+	MONTH(d) as MonthNumberofYear,
+	YEAR(d) as CalendarYear
+FROM
+(
+	SELECT OrderDate as d FROM TB_SalesOrderHeader
+	UNION ALL
+		SELECT DueDate FROM TB_SalesOrderHeader
+	UNION ALL
+		SELECT ShipDate FROM TB_SalesOrderHeader
+	UNION ALL
+		SELECT DueDate FROM TB_SalesOrderHeader
+	UNION ALL 
+		SELECT SellStartDate FROM TB_Product
+	UNION ALL
+		SELECT SellEndDate FROM TB_Product
+	UNION ALL
+		SELECT DiscontinuedDate FROM TB_Product
+) as dates
+WHERE d IS NOT NULL;</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
