@@ -8,8 +8,8 @@ FROM
 		f.IsLateShipment,
 		f.ShipmentMethod,
 		l.CountryRegion
-	FROM dm_factsales f
-    JOIN dm_location l
+	FROM DM_FactSales f
+    JOIN DM_Location l
 		ON f.ShipToAddressID = l.AddressID 
 ) AS info
 GROUP BY CountryRegion, ShipmentMethod
