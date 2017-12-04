@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2017/12/02 19:48:48.314</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017/12/02 21:16:07.421</modified_date>
+  <modified_date>2017/12/04 15:06:38.936</modified_date>
   <parameters>
     </parameters>
   <connection>
@@ -16,10 +16,10 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>BI_OLTP</database>
+    <database>BI_OLTP_53</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f285ad1fab7eca93a1c0</password>
+    <password>Encrypted 2bec8c0bb1ef59c808710a575cddcfe8c</password>
     <servername />
     <data_tablespace />
     <index_tablespace />

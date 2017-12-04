@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2017/12/02 23:04:08.381</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2017/12/03 01:31:51.819</modified_date>
+  <modified_date>2017/12/04 15:15:28.445</modified_date>
   <parameters>
     </parameters>
   <slaveservers>
@@ -324,7 +324,7 @@
       <trans_object_id />
       <filename />
       <transname>DM_Time</transname>
-      <directory>${Internal.Entry.Current.Directory}</directory>
+      <directory>${Internal.Entry.Current.Directory}/task2/etl</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -361,7 +361,7 @@
       <trans_object_id />
       <filename />
       <transname>DM_Customer</transname>
-      <directory>${Internal.Entry.Current.Directory}</directory>
+      <directory>${Internal.Entry.Current.Directory}/task2/etl</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -398,7 +398,7 @@
       <trans_object_id />
       <filename />
       <transname>DM_Product</transname>
-      <directory>${Internal.Entry.Current.Directory}</directory>
+      <directory>${Internal.Entry.Current.Directory}/task2/etl</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -435,7 +435,7 @@
       <trans_object_id />
       <filename />
       <transname>DM_Location</transname>
-      <directory>${Internal.Entry.Current.Directory}</directory>
+      <directory>${Internal.Entry.Current.Directory}/task2/etl</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -472,7 +472,7 @@
       <trans_object_id />
       <filename />
       <transname>DM_FactSales</transname>
-      <directory>${Internal.Entry.Current.Directory}</directory>
+      <directory>${Internal.Entry.Current.Directory}/task2/etl</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
