@@ -1,30 +1,18 @@
-set @num := 0, @cat := '';
-
-SELECT
-	TopProductCategory as 'Top Product Category',
-    rank as 'Product Rank',
-    ProductName as 'Product Name'
-FROM
-(
-	SELECT
-		TopProductCategory,
-        ProductName,
-        Sales,
-        @num := if (@cat = sales.TopProductCategory, @num + 1, 1) as rank,
-        @cat := sales.TopProductCategory as dummy
-	FROM
-		(
-			SELECT
-				p.ProductID as 'ProductID',
-				p.ProductTopCategory AS 'TopProductCategory',
-				p.Name AS 'ProductName',
-				COUNT(*) AS 'Sales'
-			FROM DM_Product p
-			JOIN DM_FactSales f
-				ON p.ProductID = f.ProductID
-			GROUP BY p.ProductID
-			ORDER BY ProductTopCategory ASC, Sales DESC
-		) AS sales
-) AS ranked
-WHERE rank <= 3
-ORDER BY TopProductCategory ASC, rank ASC;
+@SET product_rank := 0;
+@SET current_category := 0;
+SELECT CName AS 'Top Product Category', productRank AS 'Product Rank', PName AS 'Product Name'
+FROM (
+		SELECT *,
+			@product_rank := IF(@current_category = ProductCategoryID, @product_rank + 1, 1) AS productRank,
+			@current_category := ProductCategoryID AS currentCategory
+		FROM (
+				SELECT s.ProductID AS ProductID, p.Name AS PName, COUNT(s.ProductID) AS Cnt, cb.ProductCategoryID AS ProductCategoryID, cb.Name AS CName 
+				FROM ((TB_SalesOrderDetail s
+				JOIN TB_Product p ON s.ProductID = p.ProductID)
+				JOIN TB_ProductCategory ca ON p.ProductCategoryID = ca.ProductCategoryID)
+				JOIN TB_ProductCategory cb ON ca.ParentProductCategoryID = cb.ProductCategoryID
+				GROUP BY s.ProductID
+				ORDER BY cb.ProductCategoryID ASC, cnt DESC
+		) AS GroupSales
+	) AS RankSales
+WHERE productRank < 4;
