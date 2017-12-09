@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS DM_Time (
-    `Date` DATE,
+    `Date` TIMESTAMP,
     DayNumberofMonth INTEGER,
     MonthNumberofYear INTEGER,
     CalendarYear INTEGER,

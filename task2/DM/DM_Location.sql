@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS DM_Location (
     AddressID INTEGER NOT NULL,
-    PostalCode VARCHAR(40) NOT NULL,
+    PostalCode VARCHAR(150) NOT NULL,
     City VARCHAR(150) NOT NULL,
     StateProvince VARCHAR(150) NOT NULL,
     CountryRegion VARCHAR(150) NOT NULL,
