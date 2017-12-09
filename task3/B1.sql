@@ -1,18 +1,16 @@
-@SET product_rank := 0;
-@SET current_category := 0;
-SELECT CName AS 'Top Product Category', productRank AS 'Product Rank', PName AS 'Product Name'
+SET @product_rank := 0;
+SET @current_category := "";
+SELECT TopCategory AS 'Top Product Category', productRank AS 'Product Rank', ProductName AS 'Product Name'
 FROM (
 		SELECT *,
-			@product_rank := IF(@current_category = ProductCategoryID, @product_rank + 1, 1) AS productRank,
-			@current_category := ProductCategoryID AS currentCategory
+			@product_rank := IF(@current_category = TopCategory, @product_rank + 1, 1) AS productRank,
+			@current_category := TopCategory AS currentCategory
 		FROM (
-				SELECT s.ProductID AS ProductID, p.Name AS PName, COUNT(s.ProductID) AS Cnt, cb.ProductCategoryID AS ProductCategoryID, cb.Name AS CName 
-				FROM ((TB_SalesOrderDetail s
-				JOIN TB_Product p ON s.ProductID = p.ProductID)
-				JOIN TB_ProductCategory ca ON p.ProductCategoryID = ca.ProductCategoryID)
-				JOIN TB_ProductCategory cb ON ca.ParentProductCategoryID = cb.ProductCategoryID
-				GROUP BY s.ProductID
-				ORDER BY cb.ProductCategoryID ASC, cnt DESC
+				SELECT fs.ProductID AS ProductID, p.Name AS ProductName, COUNT(fs.ProductID) AS Cnt, p.ProductTopCategory AS TopCategory 
+				FROM DM_FactSales fs
+				JOIN DM_Product p ON fs.ProductID = p.ProductID
+				GROUP BY fs.ProductID
+				ORDER BY p.ProductTopCategory ASC, cnt DESC
 		) AS GroupSales
 	) AS RankSales
 WHERE productRank < 4;
